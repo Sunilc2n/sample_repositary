@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e1adca95-913a-4689-bd35-223352a2c1b5" >
+		<http:listener-connection host="0.0.0.0" port="5281" />
+	</http:listener-config>
+	<flow name="variabletestFlow" doc:id="d3e5579c-8430-4cae-b00c-dac756766e02" >
+		<http:listener doc:name="Listener" doc:id="6f28f2ab-c2d7-4377-97c0-fc929fa95404" config-ref="HTTP_Listener_config" path="/vartest"/>
+		<set-payload value="today i am learing variable concept inside mulesoft" doc:name="Set Payload" doc:id="3b0fbc1a-65fd-4248-b743-7cdf63276930" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="c5b38ea1-e9f8-41d4-8d50-dc1a07290544" />
+		<set-variable value="#[payload]" doc:name="Set Variable" doc:id="4f7434c3-5747-4372-bcb7-a91b17d21eba" variableName="key1"/>
+		<set-payload value="this is the pallet after set variable" doc:name="Set Payload" doc:id="b8c7351d-918d-4e32-aaba-43e7d08bde70" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="a7edfb48-8dda-49c0-b495-8f4f195972b5" />
+		<set-payload value="#[vars.key1]" doc:name="Set Payload" doc:id="4f2de44b-b50d-40e8-92c2-0e7bdffe5434" />
+		<flow-ref doc:name="Flow Reference" doc:id="3e50d647-8da4-4ab2-acc4-506e4f9ea23f" name="variable1flowFlow" target="key3"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="56d0a012-1ac8-4f8f-b709-78bc4c2c32b9" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="18d68002-d9f8-422e-a6c1-dba51c9d3024" />
+		<set-payload value="#[vars.key1 ++ ' ' ++ vars.key3]" doc:name="Set Payload" doc:id="388050ad-b35a-49af-8e35-8f2ce12da455" />
+	</flow>
+</mule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="variable1flowFlow" doc:id="5b26c05b-cf2d-40b0-8ed7-d42128588bfa" >
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="8a99e576-b854-498c-a695-359ec9363757" />
+		<set-payload value="this is the pallet insdie variable 1 flow " doc:name="Set Payload" doc:id="d78ae58e-1bcb-4373-9fb2-6fadd4416366" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="01132905-fb60-40f8-97d9-3fb0f1685fcd" />
+		<set-variable value="#[payload]" doc:name="Set Variable" doc:id="81a7e20e-d01a-4907-a9b5-d788b15bd741" variableName="key2"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="013e5610-f7b3-41eb-b18f-754eb87c3d6f" />
+		<flow-ref doc:name="Flow Reference" doc:id="69259c67-ae95-45ff-864b-87856a708ad2" name="variable2flowSub_Flow"/>
+	</flow>
+</mule>

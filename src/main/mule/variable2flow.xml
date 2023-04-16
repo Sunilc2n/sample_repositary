@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="variable2flowSub_Flow" doc:id="3a35a026-5665-4f00-96aa-03ea7b4aee0d" >
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="1c6bec5a-4d95-4c1c-a575-bf2c91af7124" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="3e2088b2-94cf-4cca-a324-bd46c6b991de" />
+		<set-payload value="this is the final pallet inside variable 2 subflow" doc:name="Set Payload" doc:id="28319e47-a4be-4e3e-934d-5edddbb0d35a" />
+	</sub-flow>
+</mule>
